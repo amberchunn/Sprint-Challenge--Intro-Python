@@ -1,5 +1,7 @@
-# The following list comprehension exercises will make use of the 
-# defined Human class. 
+# The following list comprehension exercises will make use of the
+# defined Human class.
+import string
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -17,26 +19,32 @@ humans = [
     Human("Frank", 18),
     Human("Glenn", 42),
     Human("Harrison", 12),
-    Human("Igon", 41),
+    Human("Igor", 41),
     Human("David", 31),
 ]
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
+
 print("Starts with D:")
-a = []
+a = [f"{human.name}" for human in humans if human.name.startswith('D')]
+
+# for human in humans:
+#     if human.name.startswith('D'):
+#         a.append(human.name)
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = []
+b = [f"{human.name}" for human in humans if human.name.endswith('e')]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
+str_range = ('C', 'D', 'E', 'F', 'G')
+c = [f"{human.name}" for human in humans if human.name.startswith(str_range)]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
